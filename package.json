@@ -8,6 +8,7 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "node --test",
+    "test:email": "node scripts/sendVerificationEmail.js",
     "seed:roles": "node src/database/runSeedRoles.js"
   },
   "keywords": [],

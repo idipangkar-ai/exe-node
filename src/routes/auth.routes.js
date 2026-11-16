@@ -1,18 +1,32 @@
 
 import { Router } from 'express';
 
-import { register } from '../controllers/auth.controller.js';
 import validate from '../middleware/validate.js';
-import { registerSchema } from '../validators/auth.validator.js';
+
+import {
+  register,
+  verifyEmailAddress,
+} from '../controllers/auth.controller.js';
+
+import {
+  registerSchema,
+  verifyEmailSchema,
+} from '../validators/auth.validator.js';
 
 const router = Router();
 
-// POST /register
-// Validate incoming data before calling the registration controller.
+// Register a new user.
 router.post(
   '/register',
   validate({ body: registerSchema }),
   register
+);
+
+// Verify a user's email address.
+router.get(
+  '/verify-email',
+  validate({ query: verifyEmailSchema }),
+  verifyEmailAddress
 );
 
 export default router;

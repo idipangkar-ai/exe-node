@@ -40,3 +40,11 @@ export const loginSchema = z.object({
   email: emailSchema,
   password: z.string().min(1, 'Password is required'),
 }).strict(); // Reject unexpected login fields.
+
+// Validate email verification query parameters.
+export const verifyEmailSchema = z.object({
+  token: z.string().regex(
+    /^[a-f0-9]{64}$/i,
+    'Invalid verification token'
+  ),
+}).strict();

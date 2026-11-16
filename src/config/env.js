@@ -34,9 +34,17 @@ const envSchema = z.object({
   CLIENT_ORIGINS: z
     .string()
     .default('http://localhost:3000'),
+
+  EMAIL_USER: z.email(),
+  EMAIL_PASS: z.string().min(1),
+  EMAIL_FROM: z.email(),
+  SMTP_HOST: z.string().default('smtp.gmail.com'),
+  SMTP_PORT: z.coerce.number().default(587),
+  SMTP_SECURE: z.string().default('false'),
 }).strict();
 
 // Validate environment variables when this module is imported.
+
 const result = envSchema.safeParse({
   NODE_ENV: process.env.NODE_ENV,
   PORT: process.env.PORT,
@@ -44,7 +52,18 @@ const result = envSchema.safeParse({
   JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET,
   JWT_ACCESS_EXPIRES_IN: process.env.JWT_ACCESS_EXPIRES_IN,
   CLIENT_ORIGINS: process.env.CLIENT_ORIGINS,
+
+  // Email configuration.
+  EMAIL_USER: process.env.EMAIL_USER,
+  EMAIL_PASS: process.env.EMAIL_PASS,
+  EMAIL_FROM: process.env.EMAIL_FROM,
+
+  // SMTP configuration.
+  SMTP_HOST: process.env.SMTP_HOST,
+  SMTP_PORT: process.env.SMTP_PORT,
+  SMTP_SECURE: process.env.SMTP_SECURE,
 });
+
 
 // Stop application startup if configuration is invalid.
 if (!result.success) {
