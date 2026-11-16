@@ -1,0 +1,224 @@
+
+# =====================================================
+# NODE.JS / EXPRESS.JS / MONGOOSE PROJECT
+# Professional Production-Ready Git Ignore
+# =====================================================
+
+
+# -----------------------------------------------------
+# 1. Dependencies
+# -----------------------------------------------------
+
+node_modules/
+jspm_packages/
+bower_components/
+
+
+# -----------------------------------------------------
+# 2. Environment Variables & Secrets
+# -----------------------------------------------------
+
+.env
+.env.*
+!.env.example
+!.env.sample
+
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+
+secrets/
+credentials/
+config/secrets.*
+
+
+# -----------------------------------------------------
+# 3. Logs & Debugging
+# -----------------------------------------------------
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+debug.log
+*.stackdump
+
+
+# -----------------------------------------------------
+# 4. Runtime & Process Files
+# -----------------------------------------------------
+
+pids/
+*.pid
+*.pid.lock
+
+*.seed
+*.pid.*
+
+
+# -----------------------------------------------------
+# 5. Build & Distribution
+# -----------------------------------------------------
+
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+coverage/
+.nyc_output/
+
+*.tsbuildinfo
+
+
+# -----------------------------------------------------
+# 6. Cache & Temporary Files
+# -----------------------------------------------------
+
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.stylelintcache
+
+tmp/
+temp/
+.temp/
+*.tmp
+*.swp
+*.swo
+
+
+# -----------------------------------------------------
+# 7. MongoDB / Database Files
+# -----------------------------------------------------
+
+data/
+mongodb/
+mongo-data/
+dump/
+backups/
+
+*.bson
+*.bson.gz
+*.wt
+WiredTiger*
+mongod.lock
+
+
+# -----------------------------------------------------
+# 8. Uploads & User-Generated Files
+# -----------------------------------------------------
+
+uploads/*
+!uploads/.gitkeep
+
+storage/*
+!storage/.gitkeep
+
+public/uploads/*
+!public/uploads/.gitkeep
+
+
+# -----------------------------------------------------
+# 9. Testing
+# -----------------------------------------------------
+
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+playwright/.cache/
+
+*.lcov
+
+
+# -----------------------------------------------------
+# 10. IDE & Editor Configurations
+# -----------------------------------------------------
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+*.code-workspace
+
+
+# -----------------------------------------------------
+# 11. Operating System Files
+# -----------------------------------------------------
+
+.DS_Store
+.DS_Store?
+._*
+
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+
+$RECYCLE.BIN/
+
+
+# -----------------------------------------------------
+# 12. Package Manager & Lock Files
+# -----------------------------------------------------
+
+# Keep package-lock.json, yarn.lock and pnpm-lock.yaml
+# These files should be committed for reproducible builds.
+
+
+# -----------------------------------------------------
+# 13. Framework & Tool-Specific Files
+# -----------------------------------------------------
+
+.serverless/
+.vercel/
+.netlify/
+.svelte-kit/
+.angular/
+.grunt/
+.bower-cache/
+
+
+# -----------------------------------------------------
+# 14. TypeScript
+# -----------------------------------------------------
+
+*.tsbuildinfo
+
+
+# -----------------------------------------------------
+# 15. Security & Certificates
+# -----------------------------------------------------
+
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+id_rsa
+id_ed25519
+known_hosts
+
+
+# -----------------------------------------------------
+# 16. Miscellaneous
+# -----------------------------------------------------
+
+*.orig
+*.rej
+*.bak
+*.old
+
+.Dockerignore.local
