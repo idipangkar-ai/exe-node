@@ -5,11 +5,13 @@ import validate from '../middleware/validate.js';
 
 import {
   register,
+  login,
   verifyEmailAddress,
 } from '../controllers/auth.controller.js';
 
 import {
   registerSchema,
+  loginSchema,
   verifyEmailSchema,
 } from '../validators/auth.validator.js';
 
@@ -20,6 +22,13 @@ router.post(
   '/register',
   validate({ body: registerSchema }),
   register
+);
+
+// Authenticate an existing user.
+router.post(
+  '/login',
+  validate({ body: loginSchema }),
+  login
 );
 
 // Verify a user's email address.

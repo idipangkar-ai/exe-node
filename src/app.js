@@ -1,4 +1,4 @@
-
+import cookieParser from 'cookie-parser';
 import express from 'express';
 import helmet from 'helmet';
 
@@ -21,6 +21,9 @@ app.use(corsMiddleware);
 
 // Parse incoming JSON request bodies.
 app.use(express.json({ limit: '10kb' }));
+
+// Parse cookies from incoming requests.
+app.use(cookieParser());
 
 // Apply general rate limiting to all API endpoints.
 app.use('/api', generalLimiter);

@@ -29,6 +29,16 @@ const envSchema = z.object({
     .string()
     .default('15m'),
 
+
+  // Lifetime of a refresh token.
+  // Example: 7d, 14d, 30d.
+  JWT_REFRESH_EXPIRES_IN: z
+    .string()
+    .default('7d'),
+
+  // Base URL used to construct email verification links.
+  APP_BASE_URL: z.url().default('http://localhost:5000'),
+
   // Allowed frontend origins, separated by commas.
   // Example: http://localhost:3000,https://myapp.com
   CLIENT_ORIGINS: z
@@ -51,7 +61,9 @@ const result = envSchema.safeParse({
   MONGODB_URI: process.env.MONGODB_URI,
   JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET,
   JWT_ACCESS_EXPIRES_IN: process.env.JWT_ACCESS_EXPIRES_IN,
+  JWT_REFRESH_EXPIRES_IN: process.env.JWT_REFRESH_EXPIRES_IN,
   CLIENT_ORIGINS: process.env.CLIENT_ORIGINS,
+  APP_BASE_URL: process.env.APP_BASE_URL,
 
   // Email configuration.
   EMAIL_USER: process.env.EMAIL_USER,
